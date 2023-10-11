@@ -1,0 +1,16 @@
+@use "../utils";
+
+html {
+    --body-bg-color: #f6f6f6;
+    --header-bg-color: #eee;
+    --text-color: #1a162e;
+    --icon-color: brightness(0) saturate(100%) invert(6%) sepia(47%)
+        saturate(2032%) hue-rotate(228deg) brightness(96%) contrast(93%);
+    --top-act-bg-color: #fff;
+    --top-act-group-shadow: rgba(237, 237, 246, 0.2);
+    --top-act-group-separate: #ededf6;
+    --top-act-user-shadow: rgba(0, 0, 0, 0.08);
+    @include utils.breakpoints(md) {
+        --header-bg-color: #fff;
+    }
+}

@@ -6,12 +6,11 @@
     padding-top: 54px;
 
     &__inner {
-        --inner-max-height: min(582px, 100vh - 158px);
+        --inner-max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
         --inner-padding: 30px;
 
         position: relative;
         background: var(--dropdown-bg-color);
-        max-height: var(--inner-max-height);
         padding: var(--inner-padding);
         border-radius: 20px;
         box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
@@ -28,10 +27,10 @@
 }
 
 .top-menu {
-    max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
+    position: relative;
     &__main {
+        max-height: var(--inner-max-height);
         overflow-y: auto;
-        max-height: inherit;
         width: 292px;
         border-right: 1px solid var(--border-main-column-color);
     }
@@ -41,6 +40,14 @@
     display: flex;
     gap: 14px;
 
+    & ~ .menu-column {
+        padding-top: 23px;
+
+        > :last-child .menu-column__link {
+            padding-bottom: 0;
+        }
+    }
+
     &__icon {
         position: relative;
         flex-shrink: 0;
@@ -48,6 +55,8 @@
     &__icon-1 {
         top: 0;
         left: 0;
+        padding-right: 12px;
+        object-fit: contain;
     }
 
     &__icon-2 {
@@ -55,6 +64,7 @@
         top: 12px;
         left: 12px;
         filter: var(--menu-column-icon-color);
+        object-fit: contain;
     }
 
     &__content {
@@ -71,14 +81,37 @@
     &__list {
         margin-top: 19px;
     }
-
+    &__item {
+        &--active .sub-menu {
+            display: grid;
+        }
+    }
+    &__item--active > &__link,
+    &__item:hover > &__link {
+        color: #0071dc;
+        font-weight: 500;
+    }
     &__link {
         display: block;
         padding: 7px 0;
+        font-size: 1.4rem;
+        line-height: 140%;
+    }
+}
 
-        &:hover {
-            color: #0071dc;
-            font-weight: 500;
-        }
+.sub-menu {
+    display: none;
+    position: absolute;
+    inset: 0 0 0 292px;
+    padding-left: var(--inner-padding);
+    overflow-y: auto;
+    grid-template-columns: repeat(3, 1fr);
+
+    &--not-main {
+        height: var(--inner-max-height);
+        position: initial;
+        inset: initial;
+        padding-left: 0;
+        grid-template-columns: repeat(4, 1fr);
     }
 }

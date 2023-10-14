@@ -1342,6 +1342,9 @@ html {
 .navbar__item:hover .dropdown {
   display: block;
 }
+.navbar__item:hover .sub-menu--not-main {
+  display: grid;
+}
 .navbar__link {
   padding: 0 15px;
   height: 50px;
@@ -1443,11 +1446,10 @@ html {
   padding-top: 54px;
 }
 .dropdown__inner {
-  --inner-max-height: min(582px, 100vh - 158px);
+  --inner-max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
   --inner-padding: 30px;
   position: relative;
   background: var(--dropdown-bg-color);
-  max-height: var(--inner-max-height);
   padding: var(--inner-padding);
   border-radius: 20px;
   box-shadow: 0px 40px 90px 20px var(--dropdown-shadow);
@@ -1462,11 +1464,11 @@ html {
 }
 
 .top-menu {
-  max-height: calc(var(--inner-max-height) - var(--inner-padding) * 2);
+  position: relative;
 }
 .top-menu__main {
+  max-height: var(--inner-max-height);
   overflow-y: auto;
-  max-height: inherit;
   width: 292px;
   border-right: 1px solid var(--border-main-column-color);
 }
@@ -1475,6 +1477,12 @@ html {
   display: flex;
   gap: 14px;
 }
+.menu-column ~ .menu-column {
+  padding-top: 23px;
+}
+.menu-column ~ .menu-column > :last-child .menu-column__link {
+  padding-bottom: 0;
+}
 .menu-column__icon {
   position: relative;
   flex-shrink: 0;
@@ -1482,12 +1490,15 @@ html {
 .menu-column__icon-1 {
   top: 0;
   left: 0;
+  padding-right: 12px;
+  object-fit: contain;
 }
 .menu-column__icon-2 {
   position: absolute;
   top: 12px;
   left: 12px;
   filter: var(--menu-column-icon-color);
+  object-fit: contain;
 }
 .menu-column__content {
   flex: 1;
@@ -1501,13 +1512,34 @@ html {
 .menu-column__list {
   margin-top: 19px;
 }
+.menu-column__item--active .sub-menu {
+  display: grid;
+}
+.menu-column__item--active > .menu-column__link, .menu-column__item:hover > .menu-column__link {
+  color: #0071dc;
+  font-weight: 500;
+}
 .menu-column__link {
   display: block;
   padding: 7px 0;
+  font-size: 1.4rem;
+  line-height: 140%;
 }
-.menu-column__link:hover {
-  color: #0071dc;
-  font-weight: 500;
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  inset: 0 0 0 292px;
+  padding-left: var(--inner-padding);
+  overflow-y: auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+.sub-menu--not-main {
+  height: var(--inner-max-height);
+  position: initial;
+  inset: initial;
+  padding-left: 0;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /*# sourceMappingURL=main.css.map */

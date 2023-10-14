@@ -55,6 +55,9 @@
         &:hover .dropdown {
             display: block;
         }
+        &:hover .sub-menu--not-main {
+            display: grid;
+        }
     }
 
     &__link {

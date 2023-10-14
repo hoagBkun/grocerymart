@@ -10,7 +10,7 @@
         gap: 10px;
     }
 
-    @include utils.breakpoints(sm) {
+    @include utils.breakpoints(md) {
         margin-left: 0;
     }
 

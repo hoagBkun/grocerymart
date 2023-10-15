@@ -1342,9 +1342,6 @@ html {
 .navbar__item:hover .dropdown {
   display: block;
 }
-.navbar__item:hover .sub-menu--not-main {
-  display: grid;
-}
 .navbar__link {
   padding: 0 15px;
   height: 50px;
@@ -1540,6 +1537,7 @@ html {
   inset: initial;
   padding-left: 0;
   grid-template-columns: repeat(4, 1fr);
+  display: grid;
 }
 
 /*# sourceMappingURL=main.css.map */

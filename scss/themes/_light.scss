@@ -5,8 +5,8 @@ html {
     --header-bg-color: #eee;
     --header-shadow: rgba(237, 237, 246, 0.2);
     --text-color: #1a162e;
-    --icon-color: brightness(0) saturate(100%) invert(6%) sepia(47%)
-        saturate(2032%) hue-rotate(228deg) brightness(96%) contrast(93%);
+    --icon-color: brightness(0) saturate(100%) invert(6%) sepia(47%) saturate(2032%) hue-rotate(228deg) brightness(96%)
+        contrast(93%);
     --top-act-bg-color: #fff;
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
     --top-act-group-separate: #ededf6;
@@ -19,6 +19,9 @@ html {
     --dropdown-bg-color: #fff;
     --dropdown-shadow: rgba(200, 200, 200, 0.4);
     --border-main-column-color: #d2d1d6;
-    --arrow-up-color: brightness(0) saturate(100%) invert(100%) sepia(66%)
-        saturate(23%) hue-rotate(8deg) brightness(105%) contrast(110%);
+    --arrow-up-color: brightness(0) saturate(100%) invert(100%) sepia(66%) saturate(23%) hue-rotate(8deg)
+        brightness(105%) contrast(110%);
+
+    --sidebar-bg-color: #fff;
+    --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }

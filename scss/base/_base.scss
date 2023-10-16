@@ -22,7 +22,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
+a,
 button,
 input,
 textarea,
@@ -32,6 +32,7 @@ select {
     color: inherit;
     border: inherit;
     outline: inherit;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .icon {

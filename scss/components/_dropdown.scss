@@ -1,3 +1,4 @@
+@use "../utils";
 .dropdown {
     display: none;
     position: absolute;
@@ -5,8 +6,13 @@
     width: min(1240px, 100%);
     padding-top: 54px;
 
+    @include utils.breakpoints(lg) {
+        position: inherit;
+        left: inherit;
+        padding-top: 0;
+        width: auto;
+    }
     &__inner {
-        --inner-max-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
         --inner-padding: 30px;
 
         position: relative;
@@ -17,22 +23,46 @@
 
         &::before {
             position: absolute;
-            content: url("../icons/arrow-up.svg");
+            content: url("../icons/dropdown-icon.svg");
             top: -13px;
             left: var(--arrow-left-pos);
             translate: -50%;
             filter: var(--arrow-up-color);
         }
+
+        @include utils.breakpoints(lg) {
+            &::before {
+                content: none;
+            }
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0 15px;
+        }
+
+        @include utils.breakpoints(sm) {
+            padding: 0;
+        }
     }
 }
 
 .top-menu {
+    --main-column-width: 292px;
+    --max-inner-height: calc(min(582px, 100vh - 158px) - var(--inner-padding) * 2);
+
     position: relative;
+
     &__main {
-        max-height: var(--inner-max-height);
-        overflow-y: auto;
-        width: 292px;
+        height: var(--max-inner-height);
+        width: var(--main-column-width);
         border-right: 1px solid var(--border-main-column-color);
+        overflow-y: auto;
+
+        @include utils.breakpoints(lg) {
+            width: 100%;
+            height: auto;
+            border-right: none;
+        }
     }
 }
 
@@ -43,6 +73,10 @@
     & ~ .menu-column {
         padding-top: 23px;
 
+        @include utils.breakpoints(lg) {
+            margin-bottom: 30px;
+        }
+
         > :last-child .menu-column__link {
             padding-bottom: 0;
         }
@@ -51,7 +85,18 @@
     &__icon {
         position: relative;
         flex-shrink: 0;
+        width: 36px;
+        height: 26px;
+
+        @include utils.breakpoints(xl) {
+            display: none;
+        }
+
+        @include utils.breakpoints(lg) {
+            display: block;
+        }
     }
+
     &__icon-1 {
         top: 0;
         left: 0;
@@ -76,10 +121,18 @@
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 150%;
+
+        @include utils.breakpoints(lg) {
+            margin-bottom: 26px;
+        }
     }
 
     &__list {
         margin-top: 19px;
+
+        @include utils.breakpoints(lg) {
+            margin-top: 0;
+        }
     }
     &__item {
         &--active .sub-menu {
@@ -107,12 +160,24 @@
     overflow-y: auto;
     grid-template-columns: repeat(3, 1fr);
 
+    @include utils.breakpoints(lg) {
+        position: inherit;
+        inset: inherit;
+        padding-left: 0;
+        grid-template-columns: 1fr;
+    }
+
     &--not-main {
-        height: var(--inner-max-height);
+        display: grid;
+        height: var(--max-inner-height);
         position: initial;
         inset: initial;
         padding-left: 0;
         grid-template-columns: repeat(4, 1fr);
-        display: grid;
+
+        @include utils.breakpoints(lg) {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
     }
 }

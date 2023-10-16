@@ -1,7 +1,7 @@
 <div class="container">
     <div class="top-bar">
         <!-- More  -->
-        <button class="top-bar__more">
+        <button class="top-bar__more d-none d-lg-block js-toggle" toggle-target="#navbar">
             <img src="./assets/icons/more.svg" alt="" class="top-bar__icon icon" />
         </button>
         <!-- Logo -->
@@ -10,10 +10,25 @@
             <h1 class="logo__title">grocerymart</h1>
         </a>
         <!-- Navbar -->
-        <nav class="navbar">
+        <nav class="navbar hide" id="navbar">
+            <!-- Close Button -->
+            <button class="navbar__close d-none d-lg-block js-toggle" toggle-target="#navbar">
+                <img src="./assets/icons/arrow-left.svg" alt="" class="icon navbar__close-icon" />
+            </button>
+
+            <a href="" class="navbar-btn d-none d-md-flex">
+                <img src="./assets/icons/buy.svg" alt="" class="navbar-btn__icon icon" />
+                <span class="navbar-btn__title">Card</span>
+                <span class="navbar-btn__qnt">3</span>
+            </a>
+            <a href="" class="navbar-btn d-none d-md-flex">
+                <img src="./assets/icons/heart.svg" alt="" class="navbar-btn__icon icon" />
+                <span class="navbar-btn__title">Favorite</span>
+                <span class="navbar-btn__qnt">3</span>
+            </a>
             <ul class="navbar__list js-dropdown-list">
                 <li class="navbar__item">
-                    <a href="" class="navbar__link">
+                    <a href="#!" class="navbar__link">
                         Departments
                         <img src="./assets/icons/arrow-down.svg" alt="" class="icon navbar__arrow" />
                     </a>
@@ -22,7 +37,7 @@
                             <div class="top-menu">
                                 <div class="top-menu__main">
                                     <div class="menu-column">
-                                        <div class="menu-column__icon">
+                                        <div class="menu-column__icon d-lg-none">
                                             <img
                                                 src="./assets/img/categary/cate-1.1.svg"
                                                 alt=""
@@ -36,7 +51,7 @@
                                         </div>
                                         <div class="menu-column__content">
                                             <a href="#!">
-                                                <h2 class="menu-column__heading">All Departments</h2>
+                                                <h2 class="menu-column__heading d-lg-none">All Departments</h2>
                                             </a>
                                             <ul class="menu-column__list js-menu-list">
                                                 <li class="menu-column__item">
@@ -4355,7 +4370,7 @@
                     </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="" class="navbar__link">
+                    <a href="#!" class="navbar__link">
                         Grocery
                         <img src="./assets/icons/arrow-down.svg" alt="" class="icon navbar__arrow" />
                     </a>
@@ -4702,7 +4717,7 @@
                     </div>
                 </li>
                 <li class="navbar__item">
-                    <a href="" class="navbar__link">
+                    <a href="#!" class="navbar__link">
                         Beauty
                         <img src="./assets/icons/arrow-down.svg" alt="" class="icon navbar__arrow" />
                     </a>
@@ -4982,14 +4997,16 @@
                 </li>
             </ul>
         </nav>
+        <!-- Overlay -->
+        <div class="navbar__overlay js-toggle" toggle-target="#navbar"></div>
         <!-- Action -->
         <div class="top-act">
             <div class="top-act__group">
-                <button class="top-act__btn top-act__btn--singer">
+                <button class="top-act__btn top-act__btn--singer d-xl-none">
                     <img src="./assets/icons/search.svg" alt="" class="icon top-act__icon" />
                 </button>
             </div>
-            <div class="top-act__group">
+            <div class="top-act__group d-md-none">
                 <button class="top-act__btn">
                     <img src="./assets/icons/heart.svg" alt="" class="icon top-act__icon" />
                     <span class="top-act__title">03</span>

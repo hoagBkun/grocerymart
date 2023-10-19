@@ -11,7 +11,7 @@ html {
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
     --top-act-group-separate: #ededf6;
     --top-act-user-shadow: rgba(0, 0, 0, 0.08);
-    @include utils.breakpoints(md) {
+    @include utils.screen(md) {
         --header-bg-color: #fff;
     }
 
@@ -24,4 +24,13 @@ html {
 
     --sidebar-bg-color: #fff;
     --sidebar-shadow: rgba(200, 200, 200, 0.4);
+
+    // Category
+    --cate-item-bg-color: #eee;
+    --cate-item-thumb-bg-color: #fff;
+    --cate-item-title-color: #000;
+
+    @include utils.screen(md) {
+        --cate-item-bg-color: #fff;
+    }
 }

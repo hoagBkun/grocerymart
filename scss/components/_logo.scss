@@ -5,12 +5,12 @@
     align-items: center;
     gap: 14px;
 
-    @include utils.breakpoints(lg) {
+    @include utils.screen(lg) {
         margin-left: 40px;
         gap: 10px;
     }
 
-    @include utils.breakpoints(md) {
+    @include utils.screen(md) {
         margin-left: 0;
     }
 
@@ -19,13 +19,13 @@
         font-weight: 700;
         line-height: 145.455%;
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             font-size: 1.8rem;
         }
     }
 
     &__img {
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             width: 24px;
         }
     }

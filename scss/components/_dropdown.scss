@@ -6,7 +6,7 @@
     width: min(1240px, 100%);
     padding-top: 54px;
 
-    @include utils.breakpoints(lg) {
+    @include utils.screen(lg) {
         position: inherit;
         left: inherit;
         padding-top: 0;
@@ -30,7 +30,7 @@
             filter: var(--arrow-up-color);
         }
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             &::before {
                 content: none;
             }
@@ -40,7 +40,7 @@
             padding: 0 15px;
         }
 
-        @include utils.breakpoints(sm) {
+        @include utils.screen(sm) {
             padding: 0;
         }
     }
@@ -58,7 +58,7 @@
         border-right: 1px solid var(--border-main-column-color);
         overflow-y: auto;
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             width: 100%;
             height: auto;
             border-right: none;
@@ -73,7 +73,7 @@
     & ~ .menu-column {
         padding-top: 23px;
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             margin-bottom: 30px;
         }
 
@@ -88,11 +88,11 @@
         width: 36px;
         height: 26px;
 
-        @include utils.breakpoints(xl) {
+        @include utils.screen(xl) {
             display: none;
         }
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             display: block;
         }
     }
@@ -122,7 +122,7 @@
         font-weight: 500;
         line-height: 150%;
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             margin-bottom: 26px;
         }
     }
@@ -130,7 +130,7 @@
     &__list {
         margin-top: 19px;
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             margin-top: 0;
         }
     }
@@ -160,7 +160,7 @@
     overflow-y: auto;
     grid-template-columns: repeat(3, 1fr);
 
-    @include utils.breakpoints(lg) {
+    @include utils.screen(lg) {
         position: inherit;
         inset: inherit;
         padding-left: 0;
@@ -175,7 +175,7 @@
         padding-left: 0;
         grid-template-columns: repeat(4, 1fr);
 
-        @include utils.breakpoints(lg) {
+        @include utils.screen(lg) {
             grid-template-columns: 1fr;
             height: auto;
         }

@@ -1,3 +1,4 @@
+@use "../utils";
 *,
 ::before,
 ::after {
@@ -27,12 +28,18 @@ button,
 input,
 textarea,
 select {
+    padding: 0;
     font-family: inherit;
     background: inherit;
     color: inherit;
-    border: inherit;
     outline: inherit;
+    border: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+    padding: 0;
 }
 
 .icon {
@@ -41,4 +48,11 @@ select {
 
 :root {
     --grid-gutter-y: 20px;
+}
+
+.container {
+    @include utils.screen(sm) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
 }

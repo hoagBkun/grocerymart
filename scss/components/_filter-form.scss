@@ -1,0 +1,284 @@
+@use "../utils";
+
+%text-in-form {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+}
+
+.filter-wrap {
+    position: relative;
+}
+
+.filter {
+    position: absolute;
+    z-index: 1;
+    top: 56px;
+    right: 0;
+    background: var(--filter-form-bg);
+    filter: drop-shadow(0px 40px 90px var(--filter-form-shadow));
+    padding: 30px 0;
+    border-radius: 20px;
+    transition: opacity, visibility 0.5s;
+
+    @include utils.screen(sm) {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        inset: 0;
+        border-radius: 0;
+    }
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__heading {
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 145.455%;
+    }
+
+    &__form {
+        margin-top: 30px;
+
+        &-group {
+            margin-top: 20px;
+
+            &--horizontal {
+                margin-top: 30px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        &-label {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 145.455%;
+
+            &--small {
+                @extend %text-in-form;
+                margin-bottom: 10px;
+            }
+        }
+
+        &-slider {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: #d2d1d6;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                translate: 0 -50%;
+                display: block;
+                width: 22px;
+                height: 22px;
+                border: 6px solid #ffb700;
+                border-radius: 50%;
+                background: var(--filter-form-bg);
+            }
+
+            &::before {
+                left: var(--min-value);
+            }
+
+            &::after {
+                left: var(--max-value);
+            }
+        }
+
+        &-text-input,
+        &-select-wrap {
+            border-radius: 6px;
+            border: 1px solid #d2d1d6;
+        }
+
+        &-input {
+            width: 100%;
+
+            @extend %text-in-form;
+            font-size: 1.5rem;
+
+            &::placeholder {
+                font-size: 1.5rem;
+                font-weight: 400;
+                line-height: 146.667%;
+                color: #9e9da8;
+            }
+
+            @include utils.screen(sm) {
+                font-size: 1.6rem;
+            }
+        }
+
+        &-separate {
+            width: 1px;
+            background: #eee;
+            margin: 0 30px;
+
+            @include utils.screen(xl) {
+                width: 100%;
+                height: 1px;
+                margin: 30px 0;
+            }
+        }
+
+        &-select-wrap {
+            display: flex;
+            align-items: center;
+            height: 45px;
+        }
+
+        &-select {
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: var(--width, 107px);
+            height: calc(100% - 10px);
+            cursor: pointer;
+            @extend %text-in-form;
+
+            @include utils.screen(sm) {
+                min-width: 50%;
+            }
+
+            @include utils.screen(xl) {
+                flex: 1;
+            }
+
+            & + & {
+                border-left: 1px solid #d2d1d6;
+            }
+        }
+
+        &-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+
+            @include utils.screen(sm) {
+                gap: 10px;
+            }
+        }
+
+        &-tag {
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: var(--filter-form-tag-bg);
+
+            color: #9e9da8;
+            @extend %text-in-form;
+
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--text-color);
+            }
+        }
+
+        &-text-input {
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            width: 334px;
+            height: 44px;
+            overflow: hidden;
+
+            @include utils.screen(sm) {
+                width: 100%;
+            }
+
+            &-icon {
+                margin-left: 12px;
+            }
+
+            &--small {
+                width: 121px;
+                height: 36px;
+                padding: 0 12px;
+
+                @include utils.screen(xl) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &-text-input--small &-input {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__row {
+        display: flex;
+    }
+
+    &__footer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+
+        @include utils.screen(sm) {
+            position: sticky;
+            bottom: 30px;
+            background: var(--filter-form-bg);
+        }
+
+        &-cancel,
+        &-search {
+            @include utils.screen(sm) {
+                flex: 1;
+                height: 42px;
+            }
+        }
+
+        &-cancel {
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        &-search {
+            padding: 9px 10px;
+        }
+    }
+
+    &__heading,
+    &__footer,
+    &__content {
+        padding: 0 30px;
+    }
+
+    &__arrow-up {
+        position: absolute;
+        z-index: 1;
+        top: -18px;
+        right: 20px;
+        width: 61px;
+
+        filter: var(--filter-form-arrow);
+    }
+
+    &__content {
+        max-height: calc(100vh - 350px);
+        padding-bottom: 0;
+        overflow-y: auto;
+
+        overscroll-behavior: contain;
+
+        @include utils.screen(xl) {
+            flex-direction: column;
+        }
+        @include utils.screen(sm) {
+            max-height: calc(100vh - 200px);
+            padding-bottom: 50px;
+        }
+    }
+}
